@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+    <style>
+        button {
+            padding: 10px;
+            margin: 8px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        #app {
+            background: blanchedalmond;
+            border-radius: 10px;
+        }
+
+        .box {
+            padding: 100px 0;
+            width: 200px;
+            align-items: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .container {
+            padding: 50px;
+            text-align: center;
+            align-items: center;
+            background: rgb(4, 137, 204);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .buttonsContainer {
+            padding: 50px;
+            text-align: center;
+            align-items: center;
+            background: rgb(15, 140, 42);
+            margin: 20px;
+            display: inline-block;
+        }
+
+        .styleSelected {
+            background: rgb(134, 15, 15);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello ppls</h1>
+    <div id="app">
+        <h2>IAmTemplate</h2>
+        <div class="container">
+            <h2>Beginig</h2>
+
+            <button @click="changeShowBeginignVisibility">
+                <span v-if="showBeginign">hide</span>
+                <span v-else>show</span>
+            </button>
+
+            <div v-show="showBeginign">
+                <p>Its in data container - {{bookTitle}} and {{bookDate}}</p>
+                <div class="buttonsContainer">
+                    <button v-on:click="raiseCounter">Change something + </button>
+                    <button v-on:click="reduceCounter">Change something - </button>
+                </div>
+                <div class="buttonsContainer">
+                    <button v-on:click="changeTitle">Change Book TItle</button>
+                    <button v-on:click="revertTitle('Bearer')">Revert Book TItle</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>There is something is Hiden</h2>
+
+            <button v-on:click="changeVshowHdiingVisibility">
+                <span v-if="showHdiing">hide</span>
+                <span v-else>show</span>
+            </button>
+
+            <h2 v-if="showHdiing">Its shown if property is true(its not in dom if hiden)(ist slover)</h2>
+            <div v-show="showHdiing">Its to hideble(ist hiden by css)(ist faster)</div>
+        </div>
+
+        <div class="container">
+            <h2>Mouse Events</h2>
+
+            <button @click="changeMouseEventsVisibility">
+                <span v-if="showMouseEvents">hide</span>
+                <span v-else>show</span>
+            </button>
+
+            <div v-show="showMouseEvents">
+                <div>Here A message from mouse event {{mouseEventsMsg}}</div>
+                <div class="box" @mouseover="mouseEvent($event, 5)">mouse over here</div>
+                <div class="box" @mouseleave="mouseEvent">mouse leave here</div>
+                <div class="box" @click="mouseEvent">mouse single click</div>
+                <div class="box" @dblclick="mouseEvent">mouse double click</div>
+                <div class="box" @mousemove="mouseMoveEvent">mouse move {{mouseX}} {{mouseY}}</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>cycles and dynamic styling</h2>
+
+            <button @click="changeCyclesVisibility">
+                <span v-if="showCycles">hide</span>
+                <span v-else>show</span>
+            </button>
+
+            <div v-show="showCycles">
+                <ul>
+                    <li @click="incriseDate(item)" :class="{ styleSelected: item.date % 2 != 0}" v-for="item in books">
+                        Book is {{item.title}} and {{item.date}}
+                    </li>
+                </ul>
+
+                <br>
+
+                <ul>
+                    <li @click="incriseDate(item)" :class="{ styleSelected: item.date % 2 != 0}" v-for="item in filteredItems">
+                        Book is {{item.title}} and {{item.date}}
+                    </li>
+                </ul>
+                <button @click="addBook">Add book</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <h2>Attribute binding</h2>
+
+            <button @click="changeAtributeVisibility">
+                <span v-if="showAtributeBinding">hide</span>
+                <span v-else>show</span>
+            </button>
+            <div v-show="showAtributeBinding">
+                <a :href="siteUrl">My site</a>
+                <br>
+                <br>
+                <img style="height: 100px; width: 100px;" :src="imgUri" :alt="imgUri" @click="changeImg">
+            </div>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
