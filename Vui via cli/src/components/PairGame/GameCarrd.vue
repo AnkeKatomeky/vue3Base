@@ -30,13 +30,12 @@ export default {
 
 <style scoped>
 .box {
-  height: 60px;
-  width: 60px;
+  height: 100px;
   background-color: #444;
   color: #fff;
   border-radius: 5px;
   padding: 20px;
-
+  font-size: 42px;
   align-items: center;
   display: flex;
   justify-content: center;

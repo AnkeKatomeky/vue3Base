@@ -31,6 +31,5 @@ export default {
 body{
   background: black;
   color: white;
-  zoom: 200%;
 }
 </style>

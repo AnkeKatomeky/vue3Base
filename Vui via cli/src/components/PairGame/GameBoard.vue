@@ -123,8 +123,8 @@ function sleep(time) {
 <style scoped>
 .wrapper {
   display: inline-grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-gap: 10px;
+  grid-template-columns: repeat(4, 140px);
+  grid-gap: 20px;
   color: #444;
 }
 </style>
