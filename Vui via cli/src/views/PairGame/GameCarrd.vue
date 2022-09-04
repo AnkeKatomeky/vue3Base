@@ -39,17 +39,19 @@ export default {
   align-items: center;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 .selected {
   background-color: rgb(110, 11, 11);
+  cursor: default;
 }
 
-.box.selected:hover{
+.box.selected:hover {
   background-color: rgb(110, 11, 11);
 }
 
-.box:hover{
+.box:hover {
   background-color: darkcyan;
 }
 </style>

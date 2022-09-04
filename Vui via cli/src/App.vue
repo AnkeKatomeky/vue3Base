@@ -1,23 +1,11 @@
 <template>
-  <h1>Пары</h1>
-  <!-- <ModalInvoker type="info" />
-  <ModalInvoker type="warn" />
-  <ModalInvoker type="err" /> -->
-  <PairGame />
+  <nav>
+    <router-link to="/">Дом</router-link> |
+    <router-link to="/pairs">Пары</router-link> |
+    <router-link to="/about">Про меня</router-link>
+  </nav>
+  <router-view />
 </template>
-
-<script>
-import ModalInvoker from "./components/Modal/ModalInvoker.vue";
-import PairGame from "./components/PairGame/PairGame.vue";
-
-export default {
-  components: {
-    ModalInvoker,
-    PairGame,
-  },
-  name: "App",
-};
-</script>
 
 <style>
 #app {
@@ -25,11 +13,24 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  margin-top: 60px;
 }
 
-body{
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: rgb(146, 146, 146);
+}
+
+nav a.router-link-exact-active {
+  color: darkcyan;
+}
+
+body {
   background: black;
-  color: white;
+  color: #9cb0c5;
+  zoom: 200%;
 }
 </style>

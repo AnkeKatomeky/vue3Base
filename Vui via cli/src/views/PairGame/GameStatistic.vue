@@ -8,6 +8,3 @@ export default {
   props: ["clicks", "collected", "total"],
 };
 </script>
-
-<style>
-</style>

@@ -1,23 +1,26 @@
 <template>
-  <h2>Это игра в пары. Найди парные картинки</h2>
-  <GameMenu @startGame="beginGame" />
-  <GameBoard
-    ref="board"
-    @clickIsMade="clickIsMade"
-    @addScore="addScore"
-    @getTotal="getTotal"
-  />
-  <GameStatistic :clicks="clicks" :collected="collected" :total="total" />
-  <Modal v-show="win" :theme="modalTheme">
-    <template v-slot:header>
-      <h2>Игра Закончина</h2>
-      <p>
-        Вы смогли собрать их всех за {{ clicks }} кликов и {{ seconds }} секунд
-      </p>
-      <p>{{ sadText }}</p>
-      <button @click="beginGame(1)">Начать заново</button>
-    </template>
-  </Modal>
+  <div class="pairs">
+    <h2>Это игра в пары. Найди парные картинки</h2>
+    <GameMenu @startGame="beginGame" />
+    <GameBoard
+      ref="board"
+      @clickIsMade="clickIsMade"
+      @addScore="addScore"
+      @getTotal="getTotal"
+    />
+    <GameStatistic :clicks="clicks" :collected="collected" :total="total" />
+    <Modal v-show="win" :theme="modalTheme">
+      <template v-slot:header>
+        <h2>Игра Закончина</h2>
+        <p>
+          Вы смогли собрать их всех за {{ clicks }} кликов и
+          {{ seconds }} секунд
+        </p>
+        <p>{{ sadText }}</p>
+        <button @click="beginGame(1)">Начать заново</button>
+      </template>
+    </Modal>
+  </div>
 </template>
 
 <script>
@@ -85,6 +88,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>
