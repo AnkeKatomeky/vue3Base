@@ -45,4 +45,12 @@ export default {
 .selected {
   background-color: rgb(110, 11, 11);
 }
+
+.box.selected:hover{
+  background-color: rgb(110, 11, 11);
+}
+
+.box:hover{
+  background-color: darkcyan;
+}
 </style>
