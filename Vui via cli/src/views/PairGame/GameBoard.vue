@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <div class="wrapper">
+    <div
+      class="wrapper"
+      :class="{ hard: dificulty === 3, uber: dificulty === 4 }"
+    >
       <GameCard
         ref="cards"
         v-for="(item, index) in gameCards"
@@ -24,6 +27,7 @@ export default {
   emits: ["clickIsMade", "addScore", "getTotal"],
   data() {
     return {
+      dificulty: 1,
       selectedCard: null,
       isWaiting: false,
       gameCards: [],
@@ -50,6 +54,7 @@ export default {
     },
 
     getCards(dificulty) {
+      this.dificulty = dificulty;
       if (this.$refs["cards"] !== undefined)
         this.$refs["cards"].forEach((q) => {
           q.hideBox();
@@ -64,6 +69,9 @@ export default {
           break;
         case 3:
           cardsCount = 10;
+          break;
+        case 4:
+          cardsCount = 12;
           break;
         default:
           cardsCount = 12;
@@ -123,8 +131,16 @@ function sleep(time) {
 <style scoped>
 .wrapper {
   display: inline-grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-gap: 10px;
+  grid-template-columns: repeat(4, 140px);
+  grid-gap: 20px;
   color: #444;
+}
+
+.wrapper.hard {
+  grid-template-columns: repeat(5, 140px);
+}
+
+.wrapper.uber {
+  grid-template-columns: repeat(6, 140px);
 }
 </style>
